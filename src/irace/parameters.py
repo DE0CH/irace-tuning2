@@ -95,3 +95,8 @@ class Parameters:
         for key in self.parameters:
             self.parameters[key][0] = guess_switch(key) + " "
         
+    def as_string(self):
+        lines = []
+        for key in self.parameters:
+            lines.append(f'{key} "{self.parameters[key][0]}" {repr(self.parameters[key][1])} | {repr(self.parameters[key][2])}')
+        return '\n'.join(lines)
